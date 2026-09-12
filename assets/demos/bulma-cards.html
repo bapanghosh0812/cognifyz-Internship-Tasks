@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="author" content="Bapan Ghosh" />
+<title>Bulma Responsive Cards — Bapan Ghosh</title>
+<!-- Front-end framework: Bulma via CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  html,body{background:#0a0c16 !important;color:#eef2fb;font-family:'Inter',sans-serif}
+  .title,.subtitle{color:#eef2fb !important;font-family:'Playfair Display',serif}
+  .subtitle{color:#9aa6c2 !important;font-family:'Inter',sans-serif !important}
+  .card{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.10);border-radius:18px;
+    overflow:hidden;height:100%;backdrop-filter:blur(12px);transition:.4s cubic-bezier(.22,1,.36,1);box-shadow:0 20px 44px -22px rgba(0,0,0,.6)}
+  .card:hover{transform:translateY(-10px);border-color:rgba(230,194,126,.5);box-shadow:0 34px 60px -24px rgba(124,92,255,.5)}
+  .card-content .title{font-size:1.35rem}
+  .card-image{position:relative}
+  .card-image .badge{position:absolute;top:14px;left:14px;z-index:2;background:linear-gradient(135deg,#f9edc6,#e6c27e);
+    color:#241a04;font-weight:700;font-size:.7rem;letter-spacing:1px;text-transform:uppercase;padding:6px 14px;border-radius:999px}
+  .content{color:#c3ccdf}
+  .tag.is-cognifyz{background:rgba(124,92,255,.18);color:#c6b8ff;border:1px solid rgba(124,92,255,.3)}
+  .foot{color:#68728d;text-align:center;padding:10px 0 6px;font-size:.82rem}
+  .foot b{color:#e6c27e}
+  body{padding:26px 18px}
+  .heading-row{margin-bottom:22px}
+  .chip{display:inline-block;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+    color:#9aa6c2;border-radius:999px;padding:6px 16px;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600}
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="heading-row has-text-centered">
+      <span class="chip">Bulma · Responsive Card Component</span>
+      <h1 class="title mt-4 mb-1">Our Services</h1>
+      <p class="subtitle is-6">Resize the frame — the cards reflow from three columns to one.</p>
+    </div>
+
+    <div class="columns is-variable is-5">
+      <div class="column is-one-third">
+        <div class="card">
+          <div class="card-image">
+            <span class="badge">Design</span>
+            <figure class="image is-4by3"><img src="../img/card-02.jpg" alt="Web design workspace" /></figure>
+          </div>
+          <div class="card-content">
+            <h2 class="title is-5">Web Design</h2>
+            <p class="subtitle is-6">Clean, user-first interfaces.</p>
+            <div class="content">Pixel-perfect, responsive layouts that feel effortless on any device.
+              <br><span class="tag is-cognifyz mt-2">UI / UX</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-one-third">
+        <div class="card">
+          <div class="card-image">
+            <span class="badge">Build</span>
+            <figure class="image is-4by3"><img src="../img/card-01.jpg" alt="Development desk" /></figure>
+          </div>
+          <div class="card-content">
+            <h2 class="title is-5">Development</h2>
+            <p class="subtitle is-6">Fast, semantic, live code.</p>
+            <div class="content">Hand-written HTML, CSS and JavaScript — lightweight and framework-ready.
+              <br><span class="tag is-cognifyz mt-2">Front-end</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-one-third">
+        <div class="card">
+          <div class="card-image">
+            <span class="badge">Ship</span>
+            <figure class="image is-4by3"><img src="../img/card-03.jpg" alt="Mobile device" /></figure>
+          </div>
+          <div class="card-content">
+            <h2 class="title is-5">Deployment</h2>
+            <p class="subtitle is-6">Ready for the world.</p>
+            <div class="content">Optimised, accessible builds tuned for performance on every screen.
+              <br><span class="tag is-cognifyz mt-2">Launch</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="foot">Bulma component · built by <b>Bapan Ghosh</b></p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="author" content="Bapan Ghosh" />
+<title>Responsive Demo — Bapan Ghosh</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',sans-serif;background:#0a0c16;color:#eef2fb;line-height:1.6}
+  h1,h2{font-family:'Playfair Display',serif}
+  /* nav with hamburger */
+  .nav{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;
+    padding:14px 22px;background:rgba(10,12,22,.9);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.1)}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:700}
+  .logo b{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:linear-gradient(135deg,#f9edc6,#e6c27e);color:#241a04}
+  .links{list-style:none;display:flex;gap:4px;align-items:center}
+  .links a{color:#c3ccdf;text-decoration:none;font-size:.92rem;font-weight:500;padding:9px 16px;border-radius:999px;transition:.25s}
+  .links a:hover,.links a.active{background:linear-gradient(135deg,#7c5cff,#22d3ee);color:#0a0c16;font-weight:600}
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+  .burger span{width:26px;height:2px;background:#eef2fb;border-radius:2px;transition:.3s}
+  .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+  .hero{text-align:center;padding:64px 22px 40px}
+  .hero span.k{font-size:.72rem;letter-spacing:2px;text-transform:uppercase;color:#e6c27e;font-weight:700}
+  .hero h1{font-size:clamp(1.8rem,6vw,3rem);margin:12px 0 12px;line-height:1.1}
+  .hero h1 em{font-style:normal;background:linear-gradient(120deg,#7c5cff,#22d3ee);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .hero p{color:#9aa6c2;max-width:60ch;margin:0 auto}
+
+  .grid{display:grid;gap:16px;padding:20px 22px 40px;grid-template-columns:repeat(4,1fr)}
+  .cardx{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:22px;transition:.3s}
+  .cardx:hover{transform:translateY(-5px)}
+  .cardx .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:1.3rem;
+    background:linear-gradient(135deg,#7c5cff,#22d3ee);margin-bottom:12px}
+  .cardx h3{font-family:'Inter';font-size:1rem;margin-bottom:5px}
+  .cardx p{color:#9aa6c2;font-size:.85rem}
+  .note{margin:0 22px 30px;padding:16px;border-radius:14px;text-align:center;font-weight:500;
+    background:rgba(124,92,255,.1);border:1px dashed rgba(124,92,255,.35);color:#c6b8ff;font-size:.9rem}
+  footer{text-align:center;color:#68728d;padding:18px;border-top:1px solid rgba(255,255,255,.08);font-size:.82rem}
+  footer b{color:#e6c27e}
+
+  /* ============ MEDIA QUERIES ============ */
+  @media(max-width:900px){ .grid{grid-template-columns:repeat(2,1fr)} }
+  @media(max-width:640px){
+    .burger{display:flex}
+    .links{position:absolute;top:60px;right:14px;left:14px;flex-direction:column;gap:2px;
+      background:rgba(12,15,26,.98);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:12px;
+      transform:translateY(-140%);opacity:0;pointer-events:none;transition:.35s;box-shadow:0 18px 34px rgba(0,0,0,.5)}
+    .links.show{transform:translateY(0);opacity:1;pointer-events:auto}
+    .links a{width:100%}
+  }
+  @media(max-width:460px){ .grid{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="logo"><b>C</b> Cognifyz</div>
+    <button class="burger" id="burger" aria-label="Menu" onclick="tog()"><span></span><span></span><span></span></button>
+    <ul class="links" id="menu">
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#">Features</a></li>
+      <li><a href="#">Pricing</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <span class="k">Responsive Design</span>
+    <h1>One layout, <em>every screen</em>.</h1>
+    <p>This mini-site adapts with CSS media queries. Narrow the frame and the menu collapses into a hamburger
+    while the grid reflows from four columns down to one.</p>
+  </header>
+
+  <section class="grid">
+    <div class="cardx"><div class="ic">📱</div><h3>Mobile</h3><p>Single column + hamburger menu.</p></div>
+    <div class="cardx"><div class="ic">📟</div><h3>Tablet</h3><p>Balanced two-column grid.</p></div>
+    <div class="cardx"><div class="ic">💻</div><h3>Laptop</h3><p>Four columns at a glance.</p></div>
+    <div class="cardx"><div class="ic">🖥️</div><h3>Desktop</h3><p>Spacious, wide layout.</p></div>
+  </section>
+
+  <div class="note">↔️ Breakpoints at 900px, 640px &amp; 460px — resize to see them fire live.</div>
+  <footer>Responsive demo · built by <b>Bapan Ghosh</b></footer>
+
+  <script>
+    function tog(){
+      document.getElementById('menu').classList.toggle('show');
+      document.getElementById('burger').classList.toggle('open');
+    }
+    document.querySelectorAll('#menu a').forEach(function(a){
+      a.addEventListener('click',function(){
+        document.getElementById('menu').classList.remove('show');
+        document.getElementById('burger').classList.remove('open');
+      });
+    });
+  </script>
+</body>
+</html>

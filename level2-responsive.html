@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="author" content="Bapan Ghosh" />
+<meta name="description" content="Level 2 · Task 2 — responsive design with CSS media queries and a hamburger menu. By Bapan Ghosh." />
+<title>Level 2 · Responsive Design · Cognifyz — Bapan Ghosh</title>
+<link rel="stylesheet" href="assets/css/style.css" />
+<style>
+  .device-toolbar{display:flex;gap:8px;justify-content:center;margin-bottom:22px;flex-wrap:wrap}
+  .device-toolbar button{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);
+    color:var(--muted);font-family:var(--font-body);font-weight:600;font-size:.85rem;padding:11px 20px;border-radius:999px;cursor:pointer;transition:.28s}
+  .device-toolbar button.on{background:var(--grad-gold);color:#241a04;border-color:transparent}
+  .device-toolbar button:hover{transform:translateY(-2px)}
+
+  .stage{display:flex;justify-content:center;padding:22px;background:
+    radial-gradient(80% 120% at 50% 0,rgba(124,92,255,.12),transparent 60%),var(--bg-1);
+    border:1px solid var(--border);border-radius:var(--radius-lg)}
+  .device{width:100%;max-width:100%;transition:max-width .55s var(--ease);}
+  .frame{border-radius:20px;overflow:hidden;border:1px solid var(--border-2);background:#0a0c16;box-shadow:var(--shadow);width:100%}
+  .frame-bar{display:flex;align-items:center;gap:12px;padding:10px 14px;background:linear-gradient(180deg,#141828,#0d1020);border-bottom:1px solid var(--border)}
+  .dots{display:flex;gap:6px}.dots i{width:11px;height:11px;border-radius:50%;display:block}
+  .dots .r{background:#ff5f57}.dots .y{background:#febc2e}.dots .g{background:#28c840}
+  .frame-url{flex:1;background:var(--bg-2);border:1px solid var(--border);border-radius:999px;padding:6px 14px;
+    font-family:var(--font-mono);font-size:.74rem;color:var(--muted);text-align:center;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+  .device iframe{width:100%;height:600px;border:0;display:block;background:#0a0c16}
+  .dim{text-align:center;color:var(--faint);font-family:var(--font-mono);font-size:.8rem;margin-top:14px}
+  .feature-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+  @media(max-width:720px){.feature-row{grid-template-columns:1fr}}
+  .mini{padding:24px}
+  .mini .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:1.2rem;
+    background:var(--grad-violet);margin-bottom:12px}
+  .mini h3{font-size:1.1rem;margin-bottom:6px}
+  .mini p{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+  <header id="site-nav"></header>
+
+  <section class="page-head">
+    <div class="container">
+      <span class="eyebrow">Level 2 · Task 2</span>
+      <h1>Responsive <span class="grad-text">Design</span></h1>
+      <p class="lead" style="margin:0 auto">A single page that adapts to every device with CSS media queries — including a
+      navigation menu that collapses into a hamburger on small screens. Switch devices below and watch it respond.</p>
+      <div class="crumbs"><a href="index.html">Home</a><span>/</span>Level 2<span>/</span>Responsive</div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:20px">
+    <div class="container">
+      <div class="device-toolbar reveal">
+        <button data-w="100%" class="on">🖥️ Desktop</button>
+        <button data-w="760px">📟 Tablet</button>
+        <button data-w="390px">📱 Mobile</button>
+      </div>
+
+      <div class="stage reveal">
+        <div class="device" id="device" style="max-width:100%">
+          <div class="frame">
+            <div class="frame-bar">
+              <div class="dots"><i class="r"></i><i class="y"></i><i class="g"></i></div>
+              <div class="frame-url">cognifyz.dev / responsive</div>
+            </div>
+            <iframe src="assets/demos/responsive-demo.html" title="Responsive demo with hamburger menu"></iframe>
+          </div>
+        </div>
+      </div>
+      <p class="dim" id="dim">Viewport width · 100% (Desktop)</p>
+
+      <div class="feature-row">
+        <div class="card mini reveal"><div class="ic">📐</div><h3>Media Queries</h3><p>Breakpoints at 900px, 640px and 460px reflow the grid from four columns to one.</p></div>
+        <div class="card mini reveal d1"><div class="ic">🍔</div><h3>Hamburger Menu</h3><p>On mobile the links collapse into an animated hamburger that slides open on tap.</p></div>
+        <div class="card mini reveal d2"><div class="ic">⚡</div><h3>Mobile First</h3><p>Fluid units and flexbox keep everything crisp — no horizontal scrolling, ever.</p></div>
+      </div>
+
+      <div class="task-nav" style="margin-top:36px">
+        <a href="level2-grid.html"><small>← Previous</small><b>Level 2 · Grid Layout</b></a>
+        <a class="next" href="level3-gallery.html"><small>Next →</small><b>Level 3 · Gallery</b></a>
+      </div>
+    </div>
+  </section>
+
+  <footer id="site-footer"></footer>
+  <script src="assets/js/main.js"></script>
+  <script>
+    (function(){
+      var device=document.getElementById('device'), dim=document.getElementById('dim');
+      var labels={'100%':'100% (Desktop)','760px':'760px (Tablet)','390px':'390px (Mobile)'};
+      document.querySelector('.device-toolbar').addEventListener('click',function(e){
+        var b=e.target.closest('button'); if(!b) return;
+        this.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});
+        b.classList.add('on');
+        device.style.maxWidth=b.dataset.w;
+        dim.textContent='Viewport width · '+labels[b.dataset.w];
+      });
+    })();
+  </script>
+</body>
+</html>

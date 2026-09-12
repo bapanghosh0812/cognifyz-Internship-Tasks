@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="author" content="Bapan Ghosh" />
+<meta name="description" content="Level 2 · Task 1 — a responsive card component built with the Bulma front-end framework. By Bapan Ghosh." />
+<title>Level 2 · Frameworks (Bulma) · Cognifyz — Bapan Ghosh</title>
+<link rel="stylesheet" href="assets/css/style.css" />
+<style>
+  .frame{border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border-2);background:#0a0c16;box-shadow:var(--shadow)}
+  .frame-bar{display:flex;align-items:center;gap:14px;padding:12px 16px;background:linear-gradient(180deg,#141828,#0d1020);border-bottom:1px solid var(--border)}
+  .dots{display:flex;gap:7px}.dots i{width:12px;height:12px;border-radius:50%;display:block}
+  .dots .r{background:#ff5f57}.dots .y{background:#febc2e}.dots .g{background:#28c840}
+  .frame-url{flex:1;background:var(--bg-2);border:1px solid var(--border);border-radius:999px;padding:7px 16px;
+    font-family:var(--font-mono);font-size:.78rem;color:var(--muted);text-align:center}
+  .frame iframe{width:100%;height:680px;border:0;display:block;background:#0a0c16}
+  @media(max-width:640px){.frame iframe{height:1180px}}
+  .badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+</style>
+</head>
+<body>
+  <header id="site-nav"></header>
+
+  <section class="page-head">
+    <div class="container">
+      <span class="eyebrow">Level 2 · Task 1</span>
+      <h1>Front-end <span class="grad-text">Frameworks</span></h1>
+      <p class="lead" style="margin:0 auto">A responsive card component built with <strong>Bulma</strong> — the modern,
+      flexbox-based CSS framework. Live below, fully responsive, and styled to match the experience.</p>
+      <div class="crumbs"><a href="index.html">Home</a><span>/</span>Level 2<span>/</span>Frameworks</div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:20px">
+    <div class="container">
+      <div class="frame reveal">
+        <div class="frame-bar">
+          <div class="dots"><i class="r"></i><i class="y"></i><i class="g"></i></div>
+          <div class="frame-url">cognifyz.dev / bulma-responsive-cards</div>
+        </div>
+        <iframe src="assets/demos/bulma-cards.html" title="Bulma responsive card component" loading="lazy"></iframe>
+      </div>
+
+      <div class="badges reveal">
+        <span class="chip">🧩 Bulma 0.9.4</span>
+        <span class="chip">📱 Responsive columns</span>
+        <span class="chip">🖼️ Real imagery</span>
+        <a class="chip" href="assets/demos/bulma-cards.html" target="_blank" rel="noopener" style="cursor:pointer">↗ Open demo full-screen</a>
+      </div>
+
+      <div class="task-nav" style="margin-top:36px">
+        <a href="level1-javascript.html"><small>← Previous</small><b>Level 1 · JavaScript</b></a>
+        <a class="next" href="level2-grid.html"><small>Next →</small><b>Level 2 · Grid Layout</b></a>
+      </div>
+    </div>
+  </section>
+
+  <footer id="site-footer"></footer>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="author" content="Bapan Ghosh" />
+<meta name="description" content="Cognifyz Technologies — Web Development Internship submission by Bapan Ghosh. All three levels, crafted with a premium, fully interactive experience." />
+<title>Cognifyz · Web Development Internship — Bapan Ghosh</title>
+<link rel="stylesheet" href="assets/css/style.css" />
+<style>
+  /* Home-only styles */
+  .home-hero{padding:150px 0 110px;text-align:center;position:relative}
+  .home-hero .bg{position:absolute;inset:0;z-index:-1;overflow:hidden}
+  .home-hero .bg img{width:100%;height:100%;object-fit:cover;opacity:.28;filter:saturate(1.1)}
+  .home-hero .bg::after{content:"";position:absolute;inset:0;
+    background:radial-gradient(60% 60% at 50% 40%,transparent,var(--bg-0) 92%),
+               linear-gradient(180deg,rgba(6,7,13,.4),var(--bg-0))}
+  .home-hero h1 .line{display:block}
+  .home-stats{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:46px}
+  .home-stats .stat{padding:20px 30px;border-radius:16px;background:var(--surface);border:1px solid var(--border);
+    backdrop-filter:blur(10px);min-width:130px}
+  .home-stats .stat b{display:block;font-family:var(--font-display);font-size:2rem;line-height:1}
+  .home-stats .stat span{font-size:.78rem;color:var(--muted);letter-spacing:.5px}
+
+  .level-card{display:flex;flex-direction:column;min-height:100%}
+  .level-card .lc-num{font-family:var(--font-display);font-size:1rem;color:var(--gold-2);letter-spacing:2px}
+  .level-card h3{font-size:1.7rem;margin:6px 0 8px}
+  .level-card p{color:var(--muted);font-size:.95rem;margin-bottom:20px}
+  .level-card ul{list-style:none;margin-bottom:24px;display:grid;gap:10px}
+  .level-card li{display:flex;gap:11px;align-items:flex-start;font-size:.92rem;color:#cdd6ea}
+  .level-card li i{flex:none;width:20px;height:20px;border-radius:6px;display:grid;place-items:center;font-style:normal;
+    font-size:.62rem;background:var(--grad-violet);color:#fff;margin-top:3px}
+  .level-card .lc-links{margin-top:auto;display:flex;gap:10px;flex-wrap:wrap}
+  .level-card .lc-links a{font-size:.84rem;font-weight:600;color:var(--gold-1);padding:9px 16px;border-radius:999px;
+    border:1px solid var(--border-2);transition:.3s}
+  .level-card .lc-links a:hover{background:var(--surface-2);border-color:var(--gold-2)}
+
+  .app-feature{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:stretch}
+  .app-tile{position:relative;border-radius:var(--radius-lg);overflow:hidden;padding:36px;min-height:280px;
+    display:flex;flex-direction:column;justify-content:flex-end;border:1px solid var(--border);isolation:isolate}
+  .app-tile::before{content:"";position:absolute;inset:0;z-index:-1;opacity:.9}
+  .app-tile.calc::before{background:radial-gradient(120% 120% at 80% 0,rgba(124,92,255,.5),transparent 60%),linear-gradient(160deg,#171a2e,#0c0e1a)}
+  .app-tile.color::before{background:radial-gradient(120% 120% at 20% 0,rgba(34,211,238,.45),transparent 60%),linear-gradient(160deg,#101d24,#0c0e1a)}
+  .app-tile .tag{font-size:.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold-2);font-weight:600}
+  .app-tile h3{font-size:1.9rem;margin:8px 0 10px}
+  .app-tile p{color:var(--muted);font-size:.95rem;max-width:38ch;margin-bottom:20px}
+  .app-emoji{position:absolute;top:26px;right:30px;font-size:2.4rem;filter:drop-shadow(0 8px 18px rgba(0,0,0,.5))}
+
+  .gallery-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+  .gallery-strip a{border-radius:14px;overflow:hidden;aspect-ratio:3/4;position:relative}
+  .gallery-strip img{width:100%;height:100%;object-fit:cover;transition:.6s var(--ease)}
+  .gallery-strip a:hover img{transform:scale(1.08)}
+  .gallery-strip a::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(6,7,13,.6))}
+
+  .cta-band{position:relative;overflow:hidden;border-radius:var(--radius-lg);padding:70px 40px;text-align:center;
+    border:1px solid var(--border-2)}
+  .cta-band::before{content:"";position:absolute;inset:0;z-index:-1;
+    background:radial-gradient(80% 140% at 50% 0,rgba(124,92,255,.4),transparent 60%),linear-gradient(160deg,#12152a,#0a0c16)}
+  .cta-band h2{font-size:clamp(2rem,4.5vw,3.2rem);margin-bottom:14px}
+  @media(max-width:820px){.app-feature{grid-template-columns:1fr}.gallery-strip{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+  <header id="site-nav"></header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="home-hero">
+    <div class="bg"><img src="assets/img/gallery-06.jpg" alt="" /></div>
+    <div class="container">
+      <span class="pill-badge hero-badge reveal"><span class="dot"></span> Cognifyz Technologies · Internship Program</span>
+      <h1 class="reveal d1">
+        <span class="line">Web Development</span>
+        <span class="line gold-text">Internship Showcase</span>
+      </h1>
+      <p class="lead reveal d2" style="margin:0 auto 34px">A complete, hand-crafted submission of all three levels — from
+      the fundamentals of HTML &amp; CSS to fully interactive applications, wrapped in one premium, connected experience.</p>
+      <div class="hero-cta reveal d3">
+        <a class="btn btn-gold btn-lg" href="#levels">Explore the Work</a>
+        <a class="btn btn-ghost btn-lg" href="calculator.html">Try the Calculator →</a>
+      </div>
+      <div class="home-stats reveal d4">
+        <div class="stat"><b class="gold-text">3</b><span>Levels completed</span></div>
+        <div class="stat"><b class="gold-text">11</b><span>Live pages</span></div>
+        <div class="stat"><b class="gold-text">2</b><span>Full web apps</span></div>
+        <div class="stat"><b class="gold-text">100%</b><span>Hand-coded</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== LEVELS ===================== -->
+  <section class="section" id="levels">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow center-line">The Curriculum</span>
+        <h2>Three levels, <span class="grad-text">one journey</span></h2>
+        <p>Each level builds on the last — explore any task directly. Every page is linked, so you can move
+        through the entire project without ever leaving the experience.</p>
+      </div>
+      <div class="grid g-3">
+        <!-- Level 1 -->
+        <article class="card card-glow level-card reveal">
+          <span class="lc-num">LEVEL 01</span>
+          <h3>Foundations</h3>
+          <p>The building blocks — semantic structure, styling and core interactivity.</p>
+          <ul>
+            <li><i>1</i> Webpage with heading, paragraph &amp; image</li>
+            <li><i>2</i> Form + three-link navigation menu</li>
+            <li><i>3</i> Colour changer, greeting &amp; calculator</li>
+          </ul>
+          <div class="lc-links">
+            <a href="level1-html-css.html">HTML / CSS</a>
+            <a href="level1-javascript.html">JavaScript</a>
+          </div>
+        </article>
+        <!-- Level 2 -->
+        <article class="card card-glow level-card reveal d1">
+          <span class="lc-num">LEVEL 02</span>
+          <h3>Frameworks</h3>
+          <p>Responsive engineering with modern front-end frameworks and media queries.</p>
+          <ul>
+            <li><i>1</i> Bulma responsive card component</li>
+            <li><i>2</i> Bootstrap responsive grid system</li>
+            <li><i>3</i> Media queries + hamburger menu</li>
+          </ul>
+          <div class="lc-links">
+            <a href="level2-frameworks.html">Frameworks</a>
+            <a href="level2-grid.html">Grid</a>
+            <a href="level2-responsive.html">Responsive</a>
+          </div>
+        </article>
+        <!-- Level 3 -->
+        <article class="card card-glow level-card reveal d2">
+          <span class="lc-num">LEVEL 03</span>
+          <h3>Advanced</h3>
+          <p>Rich media and a full marketing landing page with real photography.</p>
+          <ul>
+            <li><i>1</i> Click-to-enlarge image gallery</li>
+            <li><i>2</i> Automatic image slideshow</li>
+            <li><i>3</i> Internship landing page</li>
+          </ul>
+          <div class="lc-links">
+            <a href="level3-gallery.html">Gallery</a>
+            <a href="level3-landing.html">Landing</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== APPS ===================== -->
+  <section class="section" style="padding-top:20px">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow center-line">Signature Apps</span>
+        <h2>Not demos — <span class="gold-text">real applications</span></h2>
+        <p>The Level 1 JavaScript brief, taken further into two complete, production-style tools.</p>
+      </div>
+      <div class="app-feature">
+        <a class="app-tile calc reveal" href="calculator.html">
+          <span class="app-emoji">🧮</span>
+          <span class="tag">Full Application</span>
+          <h3>Scientific Calculator</h3>
+          <p>Standard &amp; scientific modes, memory, history, keyboard support — real calculations, real-time.</p>
+          <span class="btn btn-primary" style="width:fit-content">Open Calculator →</span>
+        </a>
+        <a class="app-tile color reveal d1" href="color-studio.html">
+          <span class="app-emoji">🎨</span>
+          <span class="tag">Full Application</span>
+          <h3>Color Studio</h3>
+          <p>Click-to-change themes, live HEX/RGB/HSL, gradient builder, palette generator &amp; copy-to-clipboard.</p>
+          <span class="btn btn-primary" style="width:fit-content">Open Studio →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GALLERY PREVIEW ===================== -->
+  <section class="section" style="padding-top:20px">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow center-line">Level 3 · Media</span>
+        <h2>A gallery worth <span class="grad-text">enlarging</span></h2>
+        <p>Real photography, interactive lightbox and an automatic slideshow.</p>
+      </div>
+      <div class="gallery-strip reveal">
+        <a href="level3-gallery.html"><img src="assets/img/gallery-02.jpg" alt="The Blue Fjord" /></a>
+        <a href="level3-gallery.html"><img src="assets/img/gallery-03.jpg" alt="Emerald Falls" /></a>
+        <a href="level3-gallery.html"><img src="assets/img/gallery-04.jpg" alt="Valley of Pines" /></a>
+        <a href="level3-gallery.html"><img src="assets/img/gallery-07.jpg" alt="Golden Coastline" /></a>
+        <a href="level3-gallery.html"><img src="assets/img/gallery-05.jpg" alt="Alpine Base Camp" /></a>
+      </div>
+      <div class="center" style="margin-top:30px">
+        <a class="btn btn-ghost" href="level3-gallery.html">View full gallery &amp; slideshow →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA ===================== -->
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="cta-band reveal">
+        <span class="eyebrow center-line" style="justify-content:center">Level 3 · Task 2</span>
+        <h2>Ready to see the <span class="gold-text">landing page</span>?</h2>
+        <p class="lead" style="margin:0 auto 28px">The complete internship landing page — headline, highlights,
+        qualifications and a call-to-action, built to convert.</p>
+        <a class="btn btn-gold btn-lg" href="level3-landing.html">Open the Landing Page</a>
+      </div>
+    </div>
+  </section>
+
+  <footer id="site-footer"></footer>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="author" content="Bapan Ghosh" />
+<meta name="description" content="Level 1 · Task 1 — a webpage with heading, paragraph and image, a form, and a navigation menu. By Bapan Ghosh." />
+<title>Level 1 · HTML &amp; CSS · Cognifyz — Bapan Ghosh</title>
+<link rel="stylesheet" href="assets/css/style.css" />
+<style>
+  .req-tag{display:inline-flex;align-items:center;gap:9px;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;
+    font-weight:700;color:var(--gold-2);margin-bottom:16px}
+  .req-tag b{width:24px;height:24px;border-radius:7px;display:grid;place-items:center;background:var(--grad-violet);color:#fff;font-size:.72rem}
+
+  /* mini webpage mockup */
+  .webpage{display:grid;grid-template-columns:1.05fr .95fr;gap:0;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border)}
+  @media(max-width:820px){.webpage{grid-template-columns:1fr}}
+  .webpage .copy{padding:44px;background:linear-gradient(160deg,#12152a,#0b0d18);display:flex;flex-direction:column;justify-content:center}
+  .webpage h2{font-size:clamp(1.8rem,3.6vw,2.6rem);margin-bottom:14px}
+  .webpage p{color:var(--muted);margin-bottom:24px}
+  .webpage .pic{position:relative;min-height:320px}
+  .webpage .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .webpage .pic::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,13,24,.5),transparent 40%)}
+
+  /* form */
+  .form-card{padding:40px;border-radius:var(--radius-lg)}
+  form.lux{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+  form.lux input[type=email]{flex:1;min-width:240px;background:var(--bg-2);border:1px solid var(--border);border-radius:999px;
+    padding:16px 22px;color:var(--text);font-family:var(--font-body);font-size:1rem;outline:none;transition:.25s}
+  form.lux input[type=email]:focus{border-color:var(--gold-2);box-shadow:0 0 0 4px rgba(230,194,126,.14)}
+  .form-note{margin-top:16px;color:#5ee0a0;font-size:.9rem;display:none;align-items:center;gap:8px}
+  .form-note.show{display:flex}
+
+  /* nav demo */
+  .navdemo{border-radius:var(--radius-lg);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;
+    background:var(--surface);border:1px solid var(--border-2);backdrop-filter:blur(10px)}
+  .navdemo .nd-brand{display:flex;align-items:center;gap:10px;font-weight:700}
+  .navdemo .nd-brand span{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:var(--grad-gold);color:#241a04;font-weight:800}
+  .navdemo ul{list-style:none;display:flex;gap:6px}
+  .navdemo a{padding:10px 20px;border-radius:999px;color:var(--muted);font-weight:500;transition:.25s;font-size:.92rem}
+  .navdemo a:hover,.navdemo a.active{background:var(--grad-primary);color:#0a0c16;font-weight:600}
+  @media(max-width:560px){.navdemo{flex-direction:column;gap:12px}.navdemo ul{flex-wrap:wrap;justify-content:center}}
+</style>
+</head>
+<body>
+  <header id="site-nav"></header>
+
+  <section class="page-head">
+    <div class="container">
+      <span class="eyebrow">Level 1 · Task 1</span>
+      <h1>HTML <span class="gold-text">&amp;</span> CSS</h1>
+      <p class="lead" style="margin:0 auto">Three foundational builds — a structured webpage, an elegant form, and a
+      responsive navigation menu — crafted with semantic HTML and modern CSS.</p>
+      <div class="crumbs"><a href="index.html">Home</a><span>/</span>Level 1<span>/</span>HTML &amp; CSS</div>
+    </div>
+  </section>
+
+  <!-- Requirement 1: webpage -->
+  <section class="section" style="padding:40px 0">
+    <div class="container">
+      <div class="req-tag reveal"><b>1</b> Webpage · heading + paragraph + image</div>
+      <div class="webpage reveal">
+        <div class="copy">
+          <h2>Crafting <span class="grad-text">experiences</span>, not just pages.</h2>
+          <p>This section pairs a clear heading, a descriptive paragraph and a full-bleed image — the essential
+          anatomy of a well-structured webpage. Every element is hand-coded, accessible and responsive.</p>
+          <a class="btn btn-gold" style="width:fit-content" href="#form">Get in touch</a>
+        </div>
+        <div class="pic"><img src="assets/img/card-02.jpg" alt="A developer's workspace with laptop and coffee" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Requirement 2: form -->
+  <section class="section" style="padding:40px 0" id="form">
+    <div class="container">
+      <div class="req-tag reveal"><b>2</b> Form · single input + submit</div>
+      <div class="form-card card reveal">
+        <h2 style="font-size:1.8rem">Join the newsletter</h2>
+        <p class="muted" style="max-width:52ch">A minimal, accessible form built with a single input field and a submit
+        button — with friendly inline confirmation instead of a jarring page reload.</p>
+        <form class="lux" id="subForm">
+          <input type="email" id="email" placeholder="Enter your email address" required />
+          <button type="submit" class="btn btn-primary">Subscribe →</button>
+        </form>
+        <p class="form-note" id="note">✓ Thank you! You’ve been added to the list.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Requirement 3: navigation -->
+  <section class="section" style="padding:40px 0 70px">
+    <div class="container">
+      <div class="req-tag reveal"><b>3</b> Navigation menu · three links</div>
+      <div class="reveal">
+        <nav class="navdemo">
+          <div class="nd-brand"><span>C</span> Cognifyz</div>
+          <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+        <p class="muted" style="font-size:.88rem;margin-top:14px">A clean three-link navigation bar with an active state
+        and smooth hover transitions — the same pattern that powers the site-wide menu above.</p>
+      </div>
+
+      <div class="task-nav" style="margin-top:40px">
+        <a href="index.html"><small>← Home</small><b>Overview</b></a>
+        <a class="next" href="level1-javascript.html"><small>Next →</small><b>Level 1 · JavaScript</b></a>
+      </div>
+    </div>
+  </section>
+
+  <footer id="site-footer"></footer>
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.getElementById("subForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      document.getElementById("note").classList.add("show");
+      this.reset();
+    });
+  </script>
+</body>
+</html>

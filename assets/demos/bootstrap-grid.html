@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="author" content="Bapan Ghosh" />
+<title>Bootstrap Responsive Grid — Bapan Ghosh</title>
+<!-- Front-end framework: Bootstrap 5 via CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  html,body{background:#0a0c16 !important;color:#eef2fb;font-family:'Inter',sans-serif;padding:26px 18px}
+  h1{font-family:'Playfair Display',serif}
+  .chip{display:inline-block;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+    color:#9aa6c2;border-radius:999px;padding:6px 16px;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600}
+  .tile{border-radius:16px;padding:26px 18px;min-height:120px;display:flex;flex-direction:column;justify-content:center;
+    color:#fff;transition:.35s cubic-bezier(.22,1,.36,1);box-shadow:0 16px 34px -18px rgba(0,0,0,.6)}
+  .tile:hover{transform:translateY(-7px)}
+  .tile h5{font-weight:700;margin:0}
+  .tile small{opacity:.85}
+  .c1{background:linear-gradient(135deg,#7c5cff,#4f46e5)}
+  .c2{background:linear-gradient(135deg,#22d3ee,#0891b2)}
+  .c3{background:linear-gradient(135deg,#8b5cf6,#6d28d9)}
+  .c4{background:linear-gradient(135deg,#f472b6,#be185d)}
+  .c5{background:linear-gradient(135deg,#e6c27e,#c99a45);color:#241a04}
+  .c6{background:linear-gradient(135deg,#22c55e,#15803d)}
+  .panel{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:24px;height:100%}
+  .panel .ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;color:#fff;font-weight:700;
+    background:linear-gradient(135deg,#7c5cff,#22d3ee);margin-bottom:12px}
+  .text-muted-2{color:#9aa6c2 !important}
+  .foot{color:#68728d;text-align:center;padding:12px 0 4px;font-size:.82rem}
+  .foot b{color:#e6c27e}
+</style>
+</head>
+<body>
+  <div class="container-xl">
+    <div class="text-center mb-4">
+      <span class="chip">Bootstrap 5 · Responsive Grid</span>
+      <h1 class="mt-3 mb-1">The 12-Column Grid</h1>
+      <p class="text-muted-2">1 column on mobile → 2 on tablet → 3 on desktop. Resize the frame to watch it reflow.</p>
+    </div>
+
+    <div class="row g-3">
+      <div class="col-12 col-sm-6 col-md-4"><div class="tile c1"><h5>HTML5</h5><small>Structure</small></div></div>
+      <div class="col-12 col-sm-6 col-md-4"><div class="tile c2"><h5>CSS3</h5><small>Styling</small></div></div>
+      <div class="col-12 col-sm-6 col-md-4"><div class="tile c3"><h5>JavaScript</h5><small>Interactivity</small></div></div>
+      <div class="col-12 col-sm-6 col-md-4"><div class="tile c4"><h5>Bootstrap</h5><small>Grid &amp; components</small></div></div>
+      <div class="col-12 col-sm-6 col-md-4"><div class="tile c5"><h5>Bulma</h5><small>Flexbox</small></div></div>
+      <div class="col-12 col-sm-6 col-md-4"><div class="tile c6"><h5>Responsive</h5><small>Mobile first</small></div></div>
+    </div>
+
+    <div class="row g-3 mt-3">
+      <div class="col-12 col-lg-4">
+        <div class="panel">
+          <div class="ico">✓</div>
+          <h5 class="fw-bold">Mobile First</h5>
+          <p class="text-muted-2 mb-0">Designed for the smallest screen first, then enhanced upward with Bootstrap
+          breakpoint utilities.</p>
+        </div>
+      </div>
+      <div class="col-12 col-lg-8">
+        <div class="panel">
+          <div class="ico">★</div>
+          <h5 class="fw-bold">Fluid &amp; Aligned</h5>
+          <p class="text-muted-2">The grid keeps everything aligned at any size. These two inner panels sit side-by-side
+          on large screens and stack on small ones.</p>
+          <div class="row g-2">
+            <div class="col-6"><div class="tile c2" style="min-height:64px"><small>col-6</small></div></div>
+            <div class="col-6"><div class="tile c3" style="min-height:64px"><small>col-6</small></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="foot">Bootstrap grid · built by <b>Bapan Ghosh</b></p>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
