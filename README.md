@@ -17,7 +17,7 @@ Best viewed in a modern browser (Chrome, Edge, Firefox). No installation needed.
 > for the best experience: **Level 2 · Frameworks (Bulma)** and **Level 2 · Grid (Bootstrap)**.
 > All photographs are stored **locally** inside `assets/img/`, so images always appear.
 
-Live Demo: https://cognifyz-internship-tasks.netlify.app/
+Live Demo: https://cognifyz-internship-tasks-bapan.netlify.app/
 ---
 
 ## 🗺️ Pages
